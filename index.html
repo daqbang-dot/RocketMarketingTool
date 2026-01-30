@@ -3,38 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Automation Biz System</title>
-    <link rel="manifest" href="manifest.json">
+    <title>Sistem Biz Automasi</title>
     <style>
-        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; margin: 0; background: #f0f2f5; }
-        .app-bar { background: #1877f2; color: white; padding: 15px; text-align: center; font-weight: bold; position: sticky; top: 0; }
-        .container { padding: 15px; }
-        .card { background: white; border-radius: 12px; padding: 15px; margin-bottom: 15px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
-        .btn { width: 100%; padding: 12px; border: none; border-radius: 8px; font-weight: bold; margin-bottom: 10px; cursor: pointer; }
-        .btn-primary { background: #1877f2; color: white; }
-        .btn-success { background: #42b72a; color: white; }
-        textarea { width: 100%; border: 1px solid #ddd; border-radius: 8px; padding: 10px; box-sizing: border-box; }
+        body { font-family: sans-serif; margin: 0; background: #fdfdfd; }
+        .nav { background: #000; color: #fff; padding: 20px; text-align: center; font-weight: bold; }
+        .card { margin: 15px; background: #fff; border: 1px solid #eee; border-radius: 15px; padding: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
+        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+        .btn { padding: 15px; border: none; border-radius: 10px; font-weight: bold; color: white; cursor: pointer; font-size: 14px; }
+        .blue { background: #007bff; }
+        .red { background: #ff4757; }
+        .green { background: #2ed573; }
+        textarea { width: 100%; border-radius: 10px; border: 1px solid #ddd; padding: 10px; margin-top: 10px; box-sizing: border-box; }
     </style>
 </head>
 <body>
-    <div class="app-bar">FEWFEED AUTOMATION PRO</div>
-    
-    <div class="container">
-        <div class="card">
-            <h3>Kawalan Pantas</h3>
-            <button class="btn btn-primary" onclick="triggerAction('LOGIN')">Login Akaun Baru</button>
-            <button class="btn btn-success" onclick="triggerAction('WIPE')">Wipe Data Reels</button>
-        </div>
+    <div class="nav">BIZ AUTOMATION PRO</div>
 
-        <div class="card">
-            <h3>Input Data (Bulk)</h3>
-            <textarea id="dataInput" rows="5" placeholder="Masukkan Data..."></textarea>
-            <button class="btn btn-primary" style="margin-top:10px" onclick="saveData()">Simpan Data</button>
+    <div class="card">
+        <h3>Alatan Utama</h3>
+        <div class="grid">
+            <button class="btn blue" onclick="runTask('LOGIN')">Login Baru</button>
+            <button class="btn red" onclick="runTask('WIPE')">Wipe Reels</button>
+            <button class="btn green" onclick="runTask('ANON')">Set Anon</button>
+            <button class="btn blue" onclick="runTask('COOKIE')">Inject Cookie</button>
         </div>
-
-        <div id="status" style="text-align:center; font-size: 12px; color: #65676b;">Sistem Ready</div>
     </div>
 
-    <script src="app.js"></script>
+    <div class="card">
+        <h3>Input Data</h3>
+        <textarea id="dataInput" rows="5" placeholder="Paste data akaun/reels..."></textarea>
+    </div>
+
+    <script>
+        function runTask(type) {
+            console.log("Menjalankan tugas:", type);
+            // Di sini kita akan letakkan logik pengganti bg.js
+            alert("Tugas " + type + " sedang berjalan di latar belakang.");
+        }
+    </script>
 </body>
 </html>
